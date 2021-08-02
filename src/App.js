@@ -16,7 +16,7 @@ function App() {
       }
     });
     setWeather(res.data);
-    console.log(res.data);
+    
   }
 
   useEffect(()=> {
@@ -26,7 +26,7 @@ function App() {
     })
   },[])
   
-  if (location == false) {
+  if (!location) {
     return(
       <Fragment>
         <h3>Clima nas suas Coordenadas (N/A)</h3>
@@ -40,6 +40,14 @@ function App() {
         </ul>
       </Fragment>
     );
+    }else if (!weather){
+      return(
+        <Fragment>
+          Carregando o Clima...
+        </Fragment>
+  
+      )
+  
   }else{
     return (
       <Fragment>
